@@ -1,0 +1,14 @@
+package demo;
+
+public class MaxNumber {
+
+	public static void main(String[] args) {
+		int num1 = 200;
+		int num2 = 300;
+		int num3 = 500;
+		int grestest = (num3>(num1>num2?num1:num2)?num3:(num1>num2?num1:num2));
+		System.out.println(grestest);
+
+	}
+
+}

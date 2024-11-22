@@ -1,0 +1,19 @@
+public class ShiftOperatorsDemo {
+    public static void main(String[] args) {
+        // Declare and assign a value to an integer variable
+        int number = 8; // You can change this value as needed
+
+        // Perform left and right shifts
+        int leftShift1 = number << 1; // Shift left by 1 place
+        int leftShift2 = number << 2; // Shift left by 2 places
+        int rightShift1 = number >> 1; // Shift right by 1 place
+        int rightShift2 = number >> 2; // Shift right by 2 places
+
+        // Print the results
+        System.out.println("Original number: " + number);
+        System.out.println("Left shift by 1 place: " + leftShift1);
+        System.out.println("Left shift by 2 places: " + leftShift2);
+        System.out.println("Right shift by 1 place: " + rightShift1);
+        System.out.println("Right shift by 2 places: " + rightShift2);
+    }
+}

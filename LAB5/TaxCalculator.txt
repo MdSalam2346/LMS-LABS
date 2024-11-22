@@ -1,0 +1,93 @@
+// Exception for invalid country
+class CountryNotValidException extends Exception {
+    public CountryNotValidException(String message) {
+        super(message);
+    }
+}
+
+// Exception for invalid employee name
+class EmployeeNameInvalidException extends Exception {
+    public EmployeeNameInvalidException(String message) {
+        super(message);
+    }
+}
+
+// Exception for tax not eligible
+class TaxNotEligibleException extends Exception {
+    public TaxNotEligibleException(String message) {
+        super(message);
+    }
+}
+
+
+
+
+class TaxCalculator {
+    // Method to calculate tax
+    public double calculateTax(String empName, boolean isIndian, double empSal)
+            throws CountryNotValidException, EmployeeNameInvalidException, TaxNotEligibleException {
+        // Check if the employee is Indian
+        if (!isIndian) {
+            throw new CountryNotValidException("The employee should be an Indian citizen for calculating tax.");
+        }
+
+        // Check if the employee name is valid
+        if (empName == null || empName.trim().isEmpty()) {
+            throw new EmployeeNameInvalidException("The employee name cannot be empty.");
+        }
+
+        // Calculate tax based on salary
+        double taxAmount;
+        if (empSal > 100000) {
+            taxAmount = empSal * 8 / 100;
+        } else if (empSal >= 50000) {
+            taxAmount = empSal * 6 / 100;
+        } else if (empSal >= 30000) {
+            taxAmount = empSal * 5 / 100;
+        } else if (empSal >= 10000) {
+            taxAmount = empSal * 4 / 100;
+        } else {
+            throw new TaxNotEligibleException("The employee does not need to pay tax.");
+        }
+
+        return taxAmount;
+    }
+}
+
+
+
+
+public class CalculatorSimulator {
+    public static void main(String[] args) {
+        TaxCalculator taxCalculator = new TaxCalculator();
+
+        // Test cases with Indian names
+        try {
+            System.out.println("Test Case 1:");
+            System.out.println("Tax amount is: " + taxCalculator.calculateTax("Rohan", false, 34000));
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+
+        try {
+            System.out.println("\nTest Case 2:");
+            System.out.println("Tax amount is: " + taxCalculator.calculateTax("Virat", true, 1000));
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+
+        try {
+            System.out.println("\nTest Case 3:");
+            System.out.println("Tax amount is: " + taxCalculator.calculateTax("Aakash", true, 55000));
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+
+        try {
+            System.out.println("\nTest Case 4:");
+            System.out.println("Tax amount is: " + taxCalculator.calculateTax("", true, 30000));
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+    }
+}

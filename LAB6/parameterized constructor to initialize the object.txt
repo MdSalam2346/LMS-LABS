@@ -1,0 +1,40 @@
+import java.util.ArrayList;
+
+class Book {
+    // Attributes of the Book class
+    private int bookId;
+    private String bookName;
+    private String authorName;
+
+    // Parameterized constructor to initialize book details
+    public Book(int bookId, String bookName, String authorName) {
+        this.bookId = bookId;
+        this.bookName = bookName;
+        this.authorName = authorName;
+    }
+
+    // Method to display book details
+    @Override
+    public String toString() {
+        return "Book ID: " + bookId + ", Book Name: " + bookName + ", Author Name: " + authorName;
+    }
+}
+
+public class BookCollectionDemo {
+    public static void main(String[] args) {
+        // Create an ArrayList to store Book objects
+        ArrayList<Book> books = new ArrayList<>();
+
+        // Add books to the collection
+        books.add(new Book(1, "The Alchemist", "Paulo Coelho"));
+        books.add(new Book(2, "Wings of Fire", "Dr. A.P.J. Abdul Kalam"));
+        books.add(new Book(3, "The Guide", "R.K. Narayan"));
+        books.add(new Book(4, "Harry Potter and the Philosopher's Stone", "J.K. Rowling"));
+
+        // Display all books in the collection
+        System.out.println("List of Books:");
+        for (Book book : books) {
+            System.out.println(book);
+        }
+    }
+}

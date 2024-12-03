@@ -1,0 +1,27 @@
+import java.util.Stack;
+
+public class StackDemo {
+    public static void main(String[] args) {
+        // Declare a stack
+        Stack<Integer> stack = new Stack<>();
+
+        // Add 10 elements to the stack
+        for (int i = 1; i <= 10; i++) {
+            stack.push(i);
+        }
+
+        // Display stack elements
+        System.out.println("Stack elements: " + stack);
+
+        // Remove 4 elements from the stack
+        System.out.println("Removing 4 elements...");
+        for (int i = 0; i < 4; i++) {
+            if (!stack.isEmpty()) {
+                System.out.println("Removed: " + stack.pop());
+            }
+        }
+
+        // Display stack elements after removal
+        System.out.println("Stack elements after removal: " + stack);
+    }
+}

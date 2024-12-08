@@ -1,0 +1,43 @@
+package demo;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class Jdbcdemo {
+
+	public static void main(String[] args) throws SQLException 
+	{
+	
+		try 
+		{
+		
+			Class.forName("com.mysql.cj.jdbc.Driver");              // register driver
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/connectiondemo","root","admin");
+			
+			String sql = "select * from student";                  // query
+			Statement stmt = con.createStatement();                // create statement
+			
+			ResultSet rs = stmt.executeQuery(sql);
+			while(rs.next())                                        // fetch records & print
+			{
+				
+			System.out.println("ID      : "+rs.getInt(1));
+			System.out.println("Name    : "+rs.getString(2));
+			System.out.println("Percent : "+rs.getDouble(3));
+			
+			}	
+			rs.close();
+			con.close();
+			
+		} 
+		catch (ClassNotFoundException e)
+		{
+			e.printStackTrace();
+		}                
+		
+	
+	}
+
+}

@@ -1,0 +1,7 @@
+INSERT INTO client_master (ClientNo, Name, Address1, Address2, City, Pincode, State, BalDue)
+VALUES
+('C001', 'Rahul Kumar', '123 MG Road', 'Flat 4B, 2nd Floor', 'New Delhi', 110001, 'Delhi', '5000'),
+('C002', 'Priya Sharma', '456 Banerjee Street', 'Apt 3C', 'Kolkata', 700001, 'West Bengal', '3000'),
+('C003', 'Amit Verma', '789 Jodhpur Park', 'Block A, House 7', 'Mumbai', 400001, 'Maharashtra', '4500'),
+('C004', 'Sita Patel', '321 New Colony', 'Flat 6A', 'Bangalore', 560001, 'Karnataka', '2000'),
+('C005', 'Vikram Yadav', '654 HSR Layout', 'Building 10, 3rd Floor', 'Chennai', 600001, 'Tamil Nadu', '6000');

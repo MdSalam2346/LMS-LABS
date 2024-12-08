@@ -1,0 +1,2 @@
+UPDATE client_master
+SET Address2 = REPLACE(Address2, '2ND FLOOR', '3RD FLOOR');

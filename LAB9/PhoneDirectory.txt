@@ -1,0 +1,30 @@
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class PhoneDirectory {
+    public static void main(String[] args) {
+        HashMap<Integer, String[]> phoneDirectory = new HashMap<>();
+        phoneDirectory.put(1, new String[]{"Alice", "9876543210"});
+        phoneDirectory.put(2, new String[]{"Bob", "8765432109"});
+        phoneDirectory.put(3, new String[]{"Charlie", "7654321098"});
+
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the name to search: ");
+        String searchName = sc.nextLine();
+
+        boolean found = false;
+        for (String[] entry : phoneDirectory.values()) {
+            if (entry[0].equalsIgnoreCase(searchName)) {
+                System.out.println("Name: " + entry[0] + ", Number: " + entry[1]);
+                found = true;
+                break;
+            }
+        }
+
+        if (!found) {
+            System.out.println("Name not found in the phone directory.");
+        }
+
+        sc.close();
+    }
+}

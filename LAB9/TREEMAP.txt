@@ -1,0 +1,67 @@
+import java.util.Scanner;
+import java.util.TreeMap;
+
+public class UserDetails {
+    static TreeMap<String, Integer> userDetails = new TreeMap<>();
+    static Scanner sc = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        boolean running = true;
+        while (running) {
+            System.out.println("\nMenu:");
+            System.out.println("1. Add User");
+            System.out.println("2. Search User");
+            System.out.println("3. Display All Users");
+            System.out.println("4. Exit");
+            System.out.print("Enter your choice: ");
+            int choice = sc.nextInt();
+            sc.nextLine(); // consume newline
+
+            switch (choice) {
+                case 1:
+                    addUser();
+                    break;
+                case 2:
+                    searchUser();
+                    break;
+                case 3:
+                    displayUsers();
+                    break;
+                case 4:
+                    running = false;
+                    System.out.println("Exiting...");
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+        }
+    }
+
+    static void addUser() {
+        System.out.print("Enter name: ");
+        String name = sc.nextLine();
+        System.out.print("Enter age: ");
+        int age = sc.nextInt();
+        userDetails.put(name, age);
+        System.out.println("User added successfully!");
+    }
+
+    static void searchUser() {
+        System.out.print("Enter name to search: ");
+        String name = sc.nextLine();
+        if (userDetails.containsKey(name)) {
+            System.out.println("Name: " + name + ", Age: " + userDetails.get(name));
+        } else {
+            System.out.println("User not found.");
+        }
+    }
+
+    static void displayUsers() {
+        if (userDetails.isEmpty()) {
+            System.out.println("No users found.");
+        } else {
+            System.out.println("User Details:");
+            userDetails.forEach((name, age) -> System.out.println("Name: " + name + ", Age: " + age));
+        }
+    }
+}

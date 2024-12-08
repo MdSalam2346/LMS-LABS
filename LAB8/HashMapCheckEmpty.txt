@@ -1,0 +1,13 @@
+import java.util.HashMap;
+
+public class HashMapCheckEmpty {
+    public static void main(String[] args) {
+        HashMap<Integer, String> map = new HashMap<>();
+        
+        if (map.isEmpty()) {
+            System.out.println("The HashMap is empty.");
+        } else {
+            System.out.println("The HashMap contains key-value mappings.");
+        }
+    }
+}

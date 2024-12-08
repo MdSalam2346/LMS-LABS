@@ -1,0 +1,63 @@
+use batch8359;
+
+
+create table customers
+(customerId int,custname varchar(20),coname varchar(20),address varchar(20),
+city varchar(20),pcode varchar(20),country varchar(20));
+
+select * from customers;
+
+insert into customers values(1,'alfred','maria anders','ober str57','berlin','12209','germany');
+insert into customers values(2,'ana trujilio','ana trujilio','avda de la 2222','mexico','05021','mexico');
+insert into customers values(3,'antonio','antonio','metadores2312','mexico','05023','mexico');
+insert into customers values(4,'around the horn','thomas hardy','Hanover sq','london','WA11DP','uk');
+insert into customers values(5,'burglund','christania','bergusvagen','lulea','s95822','sweden');
+
+
+
+package demo;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Scanner;
+
+public class DeleteCustomer {
+    public static void main(String[] args) throws SQLException {
+        try {
+            // Load MySQL JDBC Driver
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            // Establish the connection
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/your_database_name", "root", "admin");
+
+            // Get customer_id to delete from the user
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("Enter Customer ID to delete: ");
+            int customerId = scanner.nextInt();
+
+            // SQL DELETE query
+            String deleteQuery = "DELETE FROM Customer WHERE customer_id = " + customerId;
+
+            // Create a statement
+            Statement stmt = con.createStatement();
+
+            // Execute the DELETE query
+            int result = stmt.executeUpdate(deleteQuery);
+
+            // Check if the deletion was successful
+            if (result == 0)
+                System.out.println("Record not deleted. No customer found with ID: " + customerId);
+            else
+                System.out.println("Record Deleted Successfully for Customer ID: " + customerId);
+
+            // Close the connection
+            con.close();
+            scanner.close();
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+}

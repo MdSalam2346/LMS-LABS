@@ -1,0 +1,44 @@
+package databaseconnection;
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class Callabledemo 
+{
+
+	public static void main(String[] args) 
+	{
+		try
+		{
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/batch8359","root","admin");
+		
+		CallableStatement cs = con.prepareCall("insert into student values(?,?,?)");
+		cs.setInt(1, 222);
+		cs.setString(2, "Suresh");
+		cs.setDouble(3, 80.00);
+		
+		
+		int result = cs.executeUpdate();	
+		if(result==1)
+		System.out.println("Record inserted..!!");
+		else
+		System.out.println("Record not inserted..!!");
+			
+		con.close();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
+
+}
+
+
+create  database batch8359;
+use batch8359;
+create table student(sid int,sname varchar(20),spercent double);
+select * from student;
+insert into student values(111,'ramesh',88.00);
+

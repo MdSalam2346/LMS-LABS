@@ -1,0 +1,18 @@
+INSERT INTO Customer (customer_id, first_name, last_name) VALUES
+(1, 'Amit', 'Sharma'),
+(2, 'Priya', 'Patel'),
+(3, 'Rajesh', 'Kumar'),
+(4, 'Anita', 'Singh'),
+(5, 'Vijay', 'Gupta');
+
+INSERT INTO Orders (order_id, order_date, total_amount, customer_id) VALUES
+(101, '2024-01-10', 1500, 1),
+(102, '2024-01-12', 2200, 2),
+(103, '2024-01-14', 1100, 3),
+(104, '2024-01-15', 2800, 4),
+(105, '2024-01-16', 1700, 5);
+
+
+SELECT * 
+FROM Customer c
+INNER JOIN Orders o ON c.customer_id = o.customer_id;

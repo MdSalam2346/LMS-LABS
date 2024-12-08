@@ -1,0 +1,19 @@
+INSERT INTO Department (department_id, department_name) VALUES
+(1, 'HR'),
+(2, 'Finance'),
+(3, 'IT'),
+(4, 'Marketing'),
+(5, 'Sales');
+
+
+INSERT INTO Employees (employee_id, first_name, last_name, department_id) VALUES
+(101, 'Sandeep', 'Verma', 1),
+(102, 'Meena', 'Iyer', 2),
+(103, 'Ravi', 'Reddy', 3),
+(104, 'Nisha', 'Joshi', 4),
+(105, 'Amit', 'Shukla', 5);
+
+
+SELECT * 
+FROM Department d
+LEFT JOIN Employees e ON d.department_id = e.department_id;
